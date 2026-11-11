@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom SENA brand tokens */
+:root {
+  --sena-green: #39A900;
+  --sena-green-dark: #00561f;
+  --sena-navy: #00324D;
+  --sena-orange: #ff671b;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.5s infinite ease-in-out;
+}
+
+/* =========================================================
+   DARK MODE COMPREHENSIVE STYLING
+   ========================================================= */
+.dark body {
+  background-color: #0b1120 !important;
+  color: #e2e8f0 !important;
+}
+
+.dark .bg-white {
+  background-color: #131b2e !important;
+  color: #f1f5f9 !important;
+}
+
+.dark .bg-slate-50 {
+  background-color: #0e1626 !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+  color: #cbd5e1 !important;
+}
+
+.dark .border-slate-200,
+.dark .border-slate-100,
+.dark .border-slate-300 {
+  border-color: #1e293b !important;
+}
+
+.dark .text-slate-900,
+.dark .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+.dark .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-slate-400 {
+  color: #64748b !important;
+}
+
+.dark .hover\:bg-slate-50:hover,
+.dark .hover\:bg-slate-100:hover,
+.dark .hover\:bg-slate-200:hover {
+  background-color: #1e293b !important;
+}
+
+.dark header {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-color: #1e293b !important;
+}
+
+.dark input,
+.dark select {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+.dark input::placeholder {
+  color: #64748b !important;
+}
+
+.dark table thead {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+}
+
+.dark table thead th {
+  color: #cbd5e1 !important;
+}
+
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #1e293b !important;
+}
+
+/* Dark mode certificate container stays parchment-like or dark-framed */
+.dark #sena-certificate-frame {
+  background-color: #0d1527 !important;
+  border-color: #38bdf8 !important;
+}
+
+.dark #sena-certificate-frame p,
+.dark #sena-certificate-frame span,
+.dark #sena-certificate-frame h1,
+.dark #sena-certificate-frame h2 {
+  color: #f8fafc !important;
+}
+
+.dark #sena-certificate-frame .bg-emerald-50\/80 {
+  background-color: rgba(6, 78, 59, 0.4) !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+
+/* =========================================================
+   BLUR TRANSITION OVERLAY
+   ========================================================= */
+.screen-blur-active {
+  filter: blur(14px) brightness(0.92);
+  transition: filter 0.35s ease-in-out;
+  transform: scale(0.995);
+}
+
+.screen-blur-clearing {
+  filter: blur(0px) brightness(1);
+  transition: filter 0.4s ease-out;
+  transform: scale(1);
+}
+
+/* Fullscreen Glass Blur Backdrop during theme transition */
+.theme-blur-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
